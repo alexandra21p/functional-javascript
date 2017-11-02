@@ -48,7 +48,6 @@ const mapAndFilter = pipe( onlyIds, filterOdds );
 console.log( mapAndFilter( objects ) );
 
 
-
 // 3. (BONUS) Starting from the compose example above, write a compose function using reduce
 
 const composeReduce = ( ...rest ) => x => rest.reverse().reduce( ( arg, func ) => func( arg ), x );
