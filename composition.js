@@ -29,9 +29,23 @@ const objects = [
     { id: 5, name: "scriitor" },
 ];
 
+function leftApplication( f, ...fixedArgs ) {
+    return function( ...restArgs ) {
+        return f( ...fixedArgs, ...restArgs )
+    }
+}
+
 const odd = id => id % 2 === 1;
 const pluckId = obj => obj.id;
 
+const map = ( fn, array ) => array.map( fn );
+const filter = ( fn, array ) => array.filter( fn );
+
+const onlyIds = leftApplication( map, pluckId );
+const filterOdds = leftApplication( filter, odd );
+const mapAndFilter = pipe( onlyIds, filterOdds );
+
+console.log( mapAndFilter( objects ) );
 
 
 
