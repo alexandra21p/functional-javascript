@@ -10,7 +10,7 @@ function sumNumericValues( array ) {
 
 // or
 const numericSum = ( array ) => {
-	return array
+    return array
     	.map( elem => parseInt( elem ) )
     	.filter( elem => !isNaN( elem ) )
         .reduce( ( acc, current ) => acc + current );
@@ -24,14 +24,14 @@ console.log( numericSum( values ) );
 const nested = [ 1, 2, [ 3, 4 ], [ [ 5 ], [ 6, 7 ] ], 8 ];
 
 function sumNestedValues( array ) {
-	return array
+    return array
   	.reduce( ( acc, current ) => {
-  		if ( Array.isArray( current ) ) {
+	    if ( Array.isArray( current ) ) {
     		return acc.concat( sumNestedValues( current ) );
-    	}
-  		return acc.concat( current );
+    	    }
+  	    return acc.concat( current );
   	}, [] )
-    .reduce( ( sum, value ) => sum + value );
+    	.reduce( ( sum, value ) => sum + value );
 };
 
 console.log( sumNestedValues( nested ) );
@@ -41,15 +41,15 @@ console.log( sumNestedValues( nested ) );
 const array = [ 101, 67, 213, 94, 59, 42, 62, 40 ];
 
 function checkIfExists( array, value ) {
-	return array
+    return array
   	.map( item => item === value )
-    .reduce( ( acc, current ) => acc || current )
+        .reduce( ( acc, current ) => acc || current )
 }
 
 const isInArray = ( array, value ) => {
     return array
   	.map( item => item === value )
-    .reduce( ( acc, current ) => acc || current )
+        .reduce( ( acc, current ) => acc || current )
 };
 
 console.log( checkIfExists( array, 42 ) );
