@@ -34,7 +34,7 @@ function throttle( fn ) {
 
     alreadyCalled = false;
     return function( ...args ) {
-  	     if ( !alreadyCalled ) {
+		if ( !alreadyCalled ) {
              alreadyCalled = true;
              setTimeout( () => alreadyCalled = false, 100 );
     	     return fn( ...args );
